@@ -12,11 +12,11 @@
 
 " When started as "evim", evim.vim will already have done these settings.
 
-call plug#begin('~/.vim/plugged')
-call plug#end()
-
 "Tab length"
 set tabstop=4
+
+"Always show status line"
+set laststatus=2
 
 execute pathogen#infect()
 
