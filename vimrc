@@ -15,6 +15,9 @@
 "Tab length"
 set tabstop=4
 
+"Don't show mode since vim-airline plugin is installed"
+set noshowmode
+
 "Always show status line"
 set laststatus=2
 
@@ -66,7 +69,7 @@ endif
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set hlsearch
+  set nohlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
