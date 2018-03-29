@@ -1,17 +1,3 @@
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2015 Mar 24
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-
 "Tab length"
 set tabstop=4
 
@@ -24,6 +10,9 @@ set laststatus=2
 execute pathogen#infect()
 
 color dracula
+
+"Disable folding for vim-markdown plugin"
+let g:vim_markdown_folding_disabled = 1
 
 if v:progname =~? "evim"
   finish
