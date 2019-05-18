@@ -1,13 +1,30 @@
-"Tab length"
-set tabstop=4
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" Setting up vundle
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'wincent/command-t'
+Plugin 'dracula/vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'terryma/vim-multiple-cursors'
+call vundle#end() 
+filetype plugin indent on 
+
+"Insert spaces instead of tabs"
+set tabstop=4 shiftwidth=4 expandtab
 
 "Don't show mode since vim-airline plugin is installed"
 set noshowmode
 
 "Always show status line"
 set laststatus=2
-
-execute pathogen#infect()
 
 color dracula
 
@@ -17,10 +34,6 @@ let g:vim_markdown_folding_disabled = 1
 if v:progname =~? "evim"
   finish
 endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
