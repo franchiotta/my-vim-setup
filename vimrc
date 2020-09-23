@@ -15,6 +15,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'udalov/kotlin-vim'
 call vundle#end() 
 filetype plugin indent on 
 
@@ -28,6 +29,7 @@ set noshowmode
 set laststatus=2
 
 color dracula
+let g:dracula_italic = 0
 
 "Disable folding for vim-markdown plugin"
 let g:vim_markdown_folding_disabled = 1
