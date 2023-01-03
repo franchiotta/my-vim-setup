@@ -1,38 +1,19 @@
+let mapleader = ","
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Setting up vundle
-
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'wincent/command-t'
-Plugin 'dracula/vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'udalov/kotlin-vim'
-call vundle#end() 
-filetype plugin indent on 
-
 "Insert spaces instead of tabs"
 set tabstop=4 shiftwidth=4 expandtab
+
+set relativenumber
 
 "Don't show mode since vim-airline plugin is installed"
 set noshowmode
 
 "Always show status line"
 set laststatus=2
-
-color dracula
-let g:dracula_italic = 0
-
-"Disable folding for vim-markdown plugin"
-let g:vim_markdown_folding_disabled = 1
 
 if v:progname =~? "evim"
   finish
@@ -137,4 +118,48 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
+"Handy mappings"
+vnoremap F :!python3 -m json.tool<CR>
+vnoremap f :s/\s\+//g <bar> '<,'>-1s/\n//g<CR>
+nnoremap quo ciw"<C-R>""<C-\><C-N>
+nnoremap unq di"hPl2x<C-\><C-N>
 
+" _Plugins_
+
+" vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'wincent/command-t'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'mg979/vim-visual-multi'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'elzr/vim-json'
+Plugin 'morhetz/gruvbox'
+call vundle#end() 
+filetype plugin indent on 
+
+" command-t
+let g:CommandTPreferredImplementation='ruby'
+let g:CommandTWildIgnore=&wildignore . ",venv,build,*.egg-info"
+
+" you-complete-me
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+autocmd vimenter * ++nested colorscheme gruvbox
+
+" vim-markdown"
+let g:vim_markdown_folding_disabled=1
+
+" nerdtree
+nnoremap <leader>nt :NERDTree<CR>
+nnoremap <leader>ntt :NERDTreeToggle<CR>
+nnoremap <leader>ntb :NERDTreeFromBookmark
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeChDirMode=2

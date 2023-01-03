@@ -1,6 +1,8 @@
 Setup for VIM editor
 --------------------
 
+DEPRECATED in favor https://github.com/franchiotta/my-nvim-setup
+
 Personal configuration to setup vim in your machine.
 
 **Installation steps**
